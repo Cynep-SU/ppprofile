@@ -1,15 +1,18 @@
 import cProfile
-from random import randint
+from typing import List
+from random import randrange
+
+
+# функция, генерирующая матрицу со случайными значениями с заданными строчками и столбцами
+def create_list(col: int, row: int) -> List[List[int]]:
+    return [[randrange(0, 100) for g in range(row)] for i in range(col)]
+
 
 def main():
-    students = list(range(1, 10))
-    students_names = ["Панков", "Гайкин", "Демин", "Летов", "Иванов", "Иванов", "Иванов", "Маратов",
-                      "Кузьмов", "Сапогов"]
-    students_dict = {el: [students_names[index]] + [randint(2, 5) for i in range(4)] for index, el in
-                     enumerate(students)}  # создаю словарь по условию
-    print("Словарь:", students_dict)
+    # Генерируем с помощью функций несколько матриц с миллионом элементов
+    create_list(100000, 10)
+    create_list(1000, 1000)
+    create_list(10, 100000)
 
-    [print(val[0], sum(val[1:]) / 4, sep='\t') for val in
-     students_dict.values()]  # оформленный вывод
 
-cProfile.run("main(); " * 10000)
+cProfile.run("main()")
