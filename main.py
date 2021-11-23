@@ -1,11 +1,11 @@
 import cProfile
 from typing import List
-from random import randrange
 
 
-# функция, генерирующая матрицу со случайными значениями с заданными строчками и столбцами
+# функция, генерирующая матрицу со случайными значениями с заданными
+# строчками и столбцами
 def create_list(col: int, row: int) -> List[List[int]]:
-    return [[randrange(0, 100) for g in range(row)] for i in range(col)]
+    return [[7 for g in range(row)] for i in range(col)]
 
 
 def main():
